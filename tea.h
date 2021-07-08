@@ -126,7 +126,7 @@ class BTEA : public BTEA_Info, public BlockCipherDocumentation
 		void UncheckedSetKey(const byte *key, unsigned int length, const NameValuePairs &params)
 		{
 			CRYPTOPP_UNUSED(length), CRYPTOPP_UNUSED(params);
-			m_blockSize = params.GetIntValueWithDefault("BlockSize", 60*4);
+			m_blockSize = static_cast<unsigned int>(params.GetIntValueWithDefault("BlockSize", 60*4));
 			GetUserKey(BIG_ENDIAN_ORDER, m_k.begin(), 4, key, KEYLENGTH);
 		}
 
