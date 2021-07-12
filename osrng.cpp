@@ -22,7 +22,9 @@
 #include "rng.h"
 
 #ifdef CRYPTOPP_WIN32_AVAILABLE
+#ifndef WIN32_LEAN_AND_MEAN
 #define WIN32_LEAN_AND_MEAN
+#endif
 #include <windows.h>
 #ifndef ERROR_INCORRECT_SIZE
 # define ERROR_INCORRECT_SIZE 0x000005B6
